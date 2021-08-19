@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>DQL语言学习 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DQL语言学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="DQL语言学习">
-<meta property="og:url" content="http://example.com/2021/08/16/DQL%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="DQL语言学习">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-16T06:04:53.000Z">
-<meta property="article:modified_time" content="2021-08-16T09:05:40.267Z">
 <meta property="article:author" content="codeX">
-<meta property="article:tag" content="MySql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -188,90 +183,32 @@
           <div id="js-content" class="content-ll">
             
   
-<article id="post-DQL语言学习" class="article article-type-post " itemscope itemprop="blogPost">
+    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      DQL语言学习
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/08/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客</a>
     </h1>
   
 
         
-        <a href="/2021/08/16/DQL%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2021-08-16T06:04:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-16</time>
+        <a href="/2021/08/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2021-08-15T10:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="DQL语言学习"><a href="#DQL语言学习" class="headerlink" title="DQL语言学习"></a>DQL语言学习</h1><span id="more"></span>
-<blockquote>
-<p>DQL : DataBase Query Language (SQL分支：数据库查询语言)  </p>
-</blockquote>
-<p> &nbsp; </p>
-<h1 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h1><p>  &nbsp; </p>
-<h2 id="1-1-基本语法"><a href="#1-1-基本语法" class="headerlink" title="1.1 基本语法"></a>1.1 基本语法</h2><p>   基本查询语法: </p>
-<p>   着重号``,当需要查询的字段名与已知的 SQL 关键字重复，需要用户着重号区分，一般情况下也可以使用。  </p>
-<p>   语法：  </p>
-   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 查询列表 <span class="keyword">from</span> 表名;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">特点：  </span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 查询的列表可以是：表中的字段，常量值，表达式，函数</span><br><span class="line"><span class="number">2.</span> 查询的结果可以是一个虚拟的表格  </span><br><span class="line"></span><br><span class="line">当我们进行查询操作时，通常需要先指明是哪个库:  </span><br><span class="line"></span><br><span class="line">```<span class="keyword">sql</span></span><br><span class="line">USE 库名(比如：myemployees);</span><br></pre></td></tr></table></figure>
-<h2 id="1-2-查询表中的单个字段"><a href="#1-2-查询表中的单个字段" class="headerlink" title="1.2 查询表中的单个字段"></a>1.2 查询表中的单个字段</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    last_name</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    employees;</span><br></pre></td></tr></table></figure>
-<h2 id="1-3-查询表中的多个字段"><a href="#1-3-查询表中的多个字段" class="headerlink" title="1.3 查询表中的多个字段"></a>1.3 查询表中的多个字段</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    last_name,</span><br><span class="line">    salary,</span><br><span class="line">    email,</span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    employees;</span><br></pre></td></tr></table></figure>
-<h2 id="1-4-查询表中的所有字段"><a href="#1-4-查询表中的所有字段" class="headerlink" title="1.4 查询表中的所有字段"></a>1.4 查询表中的所有字段</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> emloyees ;</span><br></pre></td></tr></table></figure>
-<h2 id="1-5-查询常量值"><a href="#1-5-查询常量值" class="headerlink" title="1.5 查询常量值"></a>1.5 查询常量值</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">99</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="1-6-查询表达式"><a href="#1-6-查询表达式" class="headerlink" title="1.6 查询表达式"></a>1.6 查询表达式</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">100</span> <span class="operator">%</span> <span class="number">98</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="1-7-起别名"><a href="#1-7-起别名" class="headerlink" title="1.7 起别名"></a>1.7 起别名</h2><p>需要使用关键字：<code>AS</code>  </p>
-<p>优点：  </p>
-<ul>
-<li>便于理解</li>
-<li>如果要查询的字段有重名的情况，可是使用别名区分  </li>
-</ul>
-<p>方式一：  </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="number">100</span> <span class="operator">%</span> <span class="number">98</span> <span class="keyword">AS</span> 结果;</span><br></pre></td></tr></table></figure>
-<p>方式二：(中间留一个空格)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> last_name 姓,first_name 名 <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
-<h2 id="1-8-去重：distinct"><a href="#1-8-去重：distinct" class="headerlink" title="1.8 去重：distinct"></a>1.8 去重：distinct</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">关键字：distinct</span><br><span class="line">案例：查询员工表中涉及的所有部门的编号</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> department_id <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
-<h2 id="1-9-加号的作用"><a href="#1-9-加号的作用" class="headerlink" title="1.9 +加号的作用"></a>1.9 <code>+</code>加号的作用</h2><p>MySql中的 + 号只有一个作用：运算符</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 两个操作数都是数值型，则做加法运算</span><br><span class="line"><span class="keyword">SELECT</span> <span class="number">100</span> <span class="operator">+</span> <span class="number">90</span>; #<span class="number">190</span></span><br><span class="line"># 如果其中有一个是字符型，试图将字符串中的数值转换为数值型</span><br><span class="line"># 如果转换成功，则继续做加法运算</span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;123&#x27;</span> <span class="operator">+</span> <span class="number">100</span>; # <span class="number">123</span></span><br><span class="line">#如果转换失败，则将字符串当作 <span class="number">0</span> ，并且继续做加法运算</span><br><span class="line"><span class="keyword">SELECT</span> <span class="string">&#x27;abc&#x27;</span> <span class="operator">+</span> <span class="number">90</span>; # <span class="number">90</span></span><br><span class="line"># 如果和<span class="keyword">null</span>相加，则结果为 <span class="keyword">null</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">null</span> <span class="operator">+</span> <span class="number">100</span>; #<span class="number">100</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-10-CONCAT-连接符"><a href="#1-10-CONCAT-连接符" class="headerlink" title="1.10 CONCAT 连接符"></a>1.10 <code>CONCAT 连接符</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">案例：查询员工的姓名 并且显示为 姓名</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CONCAT(last_name <span class="operator">+</span> first_name) <span class="keyword">AS</span> 姓名</span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">    employees;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CONCAT(<span class="string">&#x27;a,&#x27;&#x27;b&#x27;</span>) ; # ab</span><br></pre></td></tr></table></figure>
-
-
-
-
+        <h1 id="我的博客文章"><a href="#我的博客文章" class="headerlink" title="我的博客文章"></a>我的博客文章</h1>
+        
+          <a class="article-more-a" href="/2021/08/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wein.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -282,7 +219,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java_se</a>
         		</li>
       		
 		</ul>
@@ -294,15 +231,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MySql//" class="article-tag-list-link color1">MySql</a>
+        			<a href="/categories/JAVA//" class="article-tag-list-link color5">JAVA</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MySql/part02-DQL语言学习//" class="article-tag-list-link color5">part02.DQL语言学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/MySql/part02-DQL语言学习/1基础查询//" class="article-tag-list-link color1">1基础查询</a>
+        			<a href="/categories/JAVA/se//" class="article-tag-list-link color3">se</a>
         		</li>
       		
 		</ul>
@@ -310,84 +243,16 @@
 
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yaohuicong.github.io/021/08/16/DQL%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/08/16/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          条件查询
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2021/08/16/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CSQL%E7%AE%80%E8%BF%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据库和SQL简述</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -402,34 +267,18 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DQL%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">DQL语言学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.</span> <span class="toc-text">基础查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%8D%95%E4%B8%AA%E5%AD%97%E6%AE%B5"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 查询表中的单个字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%A4%9A%E4%B8%AA%E5%AD%97%E6%AE%B5"><span class="toc-number">2.3.</span> <span class="toc-text">1.3 查询表中的多个字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E6%9F%A5%E8%AF%A2%E8%A1%A8%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5"><span class="toc-number">2.4.</span> <span class="toc-text">1.4 查询表中的所有字段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E6%9F%A5%E8%AF%A2%E5%B8%B8%E9%87%8F%E5%80%BC"><span class="toc-number">2.5.</span> <span class="toc-text">1.5 查询常量值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E6%9F%A5%E8%AF%A2%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">2.6.</span> <span class="toc-text">1.6 查询表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-%E8%B5%B7%E5%88%AB%E5%90%8D"><span class="toc-number">2.7.</span> <span class="toc-text">1.7 起别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-%E5%8E%BB%E9%87%8D%EF%BC%9Adistinct"><span class="toc-number">2.8.</span> <span class="toc-text">1.8 去重：distinct</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-%E5%8A%A0%E5%8F%B7%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">2.9.</span> <span class="toc-text">1.9 +加号的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-CONCAT-%E8%BF%9E%E6%8E%A5%E7%AC%A6"><span class="toc-number">2.10.</span> <span class="toc-text">1.10 CONCAT 连接符</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
-
 
 
           </div>
@@ -456,8 +305,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

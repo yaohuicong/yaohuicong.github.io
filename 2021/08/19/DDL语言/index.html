@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>分组查询和联合查询 | Hexo</title>
+  <title>DDL语言 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分组查询和联合查询">
+  <meta name="description" content="DDL语言 数据库模式定义语言DDL(Data Definition Language)  1. 库的管理 创建，修改，删除创建：create修改：alter删除：drop语法：create database  [if not exists]库名;  12# 案例：创建库BooksCREATE Database IF NOT EXISTS books; 12# 案例：库的修改(容易导致出错，现在已">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分组查询和联合查询">
-<meta property="og:url" content="http://example.com/2021/08/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/index.html">
+<meta property="og:title" content="DDL语言">
+<meta property="og:url" content="http://example.com/2021/08/19/DDL%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="分组查询和联合查询">
+<meta property="og:description" content="DDL语言 数据库模式定义语言DDL(Data Definition Language)  1. 库的管理 创建，修改，删除创建：create修改：alter删除：drop语法：create database  [if not exists]库名;  12# 案例：创建库BooksCREATE Database IF NOT EXISTS books; 12# 案例：库的修改(容易导致出错，现在已">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-08-18T09:23:03.000Z">
-<meta property="article:modified_time" content="2021-08-18T10:41:28.388Z">
+<meta property="article:published_time" content="2021-08-19T03:25:51.000Z">
+<meta property="article:modified_time" content="2021-08-19T06:03:54.091Z">
 <meta property="article:author" content="codeX">
+<meta property="article:tag" content="DDL">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -187,46 +188,59 @@
           <div id="js-content" class="content-ll">
             
   
-<article id="post-分组查询和联合查询" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-DDL语言" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      分组查询和联合查询
+      DDL语言
     </h1>
   
 
         
-        <a href="/2021/08/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" class="archive-article-date">
-  	<time datetime="2021-08-18T09:23:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-18</time>
+        <a href="/2021/08/19/DDL%E8%AF%AD%E8%A8%80/" class="archive-article-date">
+  	<time datetime="2021-08-19T03:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="分组查询和联合查询"><a href="#分组查询和联合查询" class="headerlink" title="分组查询和联合查询"></a>分组查询和联合查询</h1><span id="more"></span>
-<h1 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h1><blockquote>
-<p>应用场景：当要显示的数据，一页显示不全，需要分页提交sql请求  </p>
+        <h1 id="DDL语言"><a href="#DDL语言" class="headerlink" title="DDL语言"></a>DDL语言</h1><blockquote>
+<p>数据库模式定义语言DDL(Data Definition Language)</p>
 </blockquote>
-<h2 id="1-语法"><a href="#1-语法" class="headerlink" title="1.语法"></a>1.语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">    select 查询列表</span><br><span class="line">    from 表</span><br><span class="line">    [join 表]</span><br><span class="line">    on 连接条件</span><br><span class="line">    where 筛选条件</span><br><span class="line">    group by 分组字段</span><br><span class="line">    having 分组后的筛选</span><br><span class="line">    order by 排序的字段</span><br><span class="line">    limit offset,size;</span><br><span class="line">其中 offset为要显示条目的起始索引（起始索引从 0  开始）</span><br><span class="line">    size 要显示的条目个数</span><br><span class="line">特点: limit语句放在查询语句的最后</span><br><span class="line">      公式：要显示的页数page,每页的条目数size</span><br><span class="line">      select 查询列表</span><br><span class="line">      grom 表</span><br><span class="line">      limit (page - 1)*size ,size;</span><br></pre></td></tr></table></figure>
-<h2 id="2-SQL语句的执行顺序"><a href="#2-SQL语句的执行顺序" class="headerlink" title="2. SQL语句的执行顺序"></a>2. SQL语句的执行顺序</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">select 查询列表              7</span><br><span class="line">from 表                      1</span><br><span class="line">连接类型 join 表2            2</span><br><span class="line">on 连接条件                  3</span><br><span class="line">where 筛选条件               4</span><br><span class="line">group by 分组列表            5</span><br><span class="line">having 分组后的筛选          6</span><br><span class="line">order by 排序列表            8</span><br><span class="line">limit 偏移，条目数;          9</span><br><span class="line">注：每执行一条sql语句就会生成一个虚拟的表</span><br></pre></td></tr></table></figure>
-<h2 id="3-具体案例"><a href="#3-具体案例" class="headerlink" title="3. 具体案例"></a>3. 具体案例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 案例：查询前五条员工信息</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees LIMIT <span class="number">0</span>,<span class="number">5</span>;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span>  employees LIMIT <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：查询第<span class="number">11</span>条——第<span class="number">25</span>条</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employes LIMIT <span class="number">10</span>,<span class="number">15</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 案例：有奖金的员工信息，并且工资较高的前<span class="number">10</span>名显示出来</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> </span><br><span class="line"><span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-<h1 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h1><blockquote>
-<p>union 联合 合并：将多条查询语句的结果合并成一个结果  </p>
+<h2 id="1-库的管理"><a href="#1-库的管理" class="headerlink" title="1. 库的管理"></a>1. 库的管理</h2><blockquote>
+<p>创建，修改，删除<br>创建：create<br>修改：alter<br>删除：drop<br>语法：create database  [if not exists]库名;</p>
 </blockquote>
-<h2 id="1-语法-1"><a href="#1-语法-1" class="headerlink" title="1. 语法"></a>1. 语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">语法：</span><br><span class="line">查询语句1</span><br><span class="line">union</span><br><span class="line">查询语句2</span><br><span class="line">union</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="2-应用场景"><a href="#2-应用场景" class="headerlink" title="2. 应用场景"></a>2. 应用场景</h2><p>应用场景：<br>要查询的结果来自于多个表，且多个表没有直接的连接关系，但查询的信息一致时</p>
-<h2 id="3-特点-★"><a href="#3-特点-★" class="headerlink" title="3. 特点 ★"></a>3. 特点 ★</h2><ol>
-<li>要求多条查询语句的查询列数是一致的！</li>
-<li>要求多条查询语句的查询的每一列的类型和顺序最好一致</li>
-<li>union关键字默认去重，如果使用union all 可以包含重复项<h2 id="4-具体案例"><a href="#4-具体案例" class="headerlink" title="4. 具体案例"></a>4. 具体案例</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 案例：查询部门编号<span class="operator">&gt;</span><span class="number">90</span>或邮箱包含a的员工信息</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> department_id <span class="operator">&gt;</span> <span class="number">90</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 案例：查询中国用户中男性的信息以及外国用户中年男性的用户信息</span><br><span class="line"><span class="keyword">SELECT</span> id,cname <span class="keyword">FROM</span> t_ca <span class="keyword">WHERE</span> csex<span class="operator">=</span><span class="string">&#x27;男&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> t_id,tname <span class="keyword">FROM</span> t_ua <span class="keyword">WHERE</span> tGender<span class="operator">=</span><span class="string">&#x27;male&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：创建库Books</span><br><span class="line"><span class="keyword">CREATE</span> Database IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> books;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：库的修改(容易导致出错，现在已经不支持了)</span><br><span class="line">RENAME DATABASE books <span class="keyword">TO</span> 新库名;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：更改库的字符集 </span><br><span class="line"><span class="keyword">ALTER</span> DATABASE books <span class="type">CHARACTER</span> <span class="keyword">SET</span> gbk;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 库的删除  </span><br><span class="line"><span class="keyword">DROP</span> DATABASE IF <span class="keyword">EXISTS</span> books;</span><br></pre></td></tr></table></figure>
+<h2 id="2-表的管理"><a href="#2-表的管理" class="headerlink" title="2. 表的管理"></a>2. 表的管理</h2><blockquote>
+<p>语法：<br>create table 表名(<br>    列名 列的类型【(长度) 约束】,<br>    列名 列的类型【(长度) 约束】,<br>    列名 列的类型【(长度) 约束】,<br>    …<br>    列名 列的类型【(长度) 约束】<br>)  </p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 案例：创建表author </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> author(</span><br><span class="line">    id <span class="type">INT</span>;</span><br><span class="line">    au_bane <span class="type">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    nation <span class="type">VARCHAR</span>(<span class="number">10</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="3-表的修改"><a href="#3-表的修改" class="headerlink" title="3. 表的修改"></a>3. 表的修改</h2><blockquote>
+<p>语法：alter table 表名 add|drop|modify|change column 列名[列类型 约束]</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：修改列名</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> book CHANGE <span class="keyword">COLUMN</span> publishdata pubDate DATETIME;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：修改列的类型或约束</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> book MODIFY <span class="keyword">COLUMN</span> pubDate <span class="type">TIMESTAMP</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：添加新列</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> author <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> annual <span class="keyword">DOUBLE</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：删除列</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> book_author <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> annual;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：修改表名</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> author RENAME <span class="keyword">TO</span> book_author;</span><br></pre></td></tr></table></figure>
+<h2 id="4-表的删除"><a href="#4-表的删除" class="headerlink" title="4. 表的删除"></a>4. 表的删除</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> book_author;</span><br><span class="line"></span><br><span class="line"># 通用的写法</span><br><span class="line"><span class="keyword">DROP</span> DATABASE IF <span class="keyword">EXISTS</span> 旧库名;</span><br><span class="line"><span class="keyword">CREATE</span> DATABASE 新库名；</span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> 旧表名</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名();</span><br></pre></td></tr></table></figure>
+<h2 id="5-表的复制"><a href="#5-表的复制" class="headerlink" title="5. 表的复制"></a>5. 表的复制</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 案例：仅仅复制表的结构</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `<span class="keyword">copy</span>` <span class="keyword">LIKE</span> author;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">案例：复制表的结构<span class="operator">+</span>数据</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> copy2</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> author;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">案例：只复制部分数据</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> copy3 </span><br><span class="line"><span class="keyword">SELECT</span> id,au_name</span><br><span class="line"><span class="keyword">FROM</span> author</span><br><span class="line"><span class="keyword">WHERE</span> nation<span class="operator">=</span><span class="string">&#x27;中国&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 案例：仅仅复制某些字段</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> copy4</span><br><span class="line"><span class="keyword">SELECT</span> id,au_name</span><br><span class="line"><span class="keyword">FROM</span> author</span><br><span class="line"><span class="keyword">WHERE</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
 
       
 
@@ -261,6 +275,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DDL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
@@ -271,7 +296,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/MySql/part07-分组查询和联合查询//" class="article-tag-list-link color2">part07.分组查询和联合查询</a>
+        			<a href="/categories/MySql/part98-DDL语言//" class="article-tag-list-link color3">part98.DDL语言</a>
         		</li>
       		
 		</ul>
@@ -326,7 +351,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yaohuicong.github.io/021/08/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yaohuicong.github.io/021/08/19/DDL%E8%AF%AD%E8%A8%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +365,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/08/19/DML%E8%AF%AD%E8%A8%80/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          DML语言
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/08/17/%E5%AD%90%E6%9F%A5%E8%AF%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">子查询</div>
+    <a href="/2021/08/19/DML%E8%AF%AD%E8%A8%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DML语言</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -378,7 +394,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.</span> <span class="toc-text">分组查询和联合查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="toc-number">2.</span> <span class="toc-text">分组查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%AD%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">1.语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-SQL%E8%AF%AD%E5%8F%A5%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2. SQL语句的执行顺序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%B7%E4%BD%93%E6%A1%88%E4%BE%8B"><span class="toc-number">2.3.</span> <span class="toc-text">3. 具体案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2"><span class="toc-number">3.</span> <span class="toc-text">联合查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%AD%E6%B3%95-1"><span class="toc-number">3.1.</span> <span class="toc-text">1. 语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">3.2.</span> <span class="toc-text">2. 应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%89%B9%E7%82%B9-%E2%98%85"><span class="toc-number">3.3.</span> <span class="toc-text">3. 特点 ★</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%85%B7%E4%BD%93%E6%A1%88%E4%BE%8B"><span class="toc-number">3.4.</span> <span class="toc-text">4. 具体案例</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DDL%E8%AF%AD%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">DDL语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BA%93%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">1. 库的管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%A1%A8%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">2. 表的管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A1%A8%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-number">1.3.</span> <span class="toc-text">3. 表的修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%A1%A8%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">4. 表的删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="toc-number">1.5.</span> <span class="toc-text">5. 表的复制</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: se | Hexo</title>
+  <title>视图 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/categories/JAVA/se/index.html">
+  <meta name="description" content="视图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="视图">
+<meta property="og:url" content="http://example.com/2021/08/21/%E8%A7%86%E5%9B%BE/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="视图">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-21T02:26:14.000Z">
+<meta property="article:modified_time" content="2021-08-21T03:13:24.188Z">
 <meta property="article:author" content="codeX">
 <meta name="twitter:card" content="summary">
   
@@ -183,73 +187,237 @@
           <div id="js-content" class="content-ll">
             
   
+<article id="post-视图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2021-08-15T10:18:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/15/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客</a>
+    <h1 class="article-title" itemprop="name">
+      视图
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java_se</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2021/08/21/%E8%A7%86%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2021-08-21T02:26:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h1><span id="more"></span>  
+<h2 id="1-视图的概念"><a href="#1-视图的概念" class="headerlink" title="1. 视图的概念"></a>1. 视图的概念</h2><p>视图：虚拟表，和普通表一样使用，mysql5.1版本出现的新特性，是通过表<strong>动态生成的数据</strong>,<strong>只保存了sql逻辑，不保存查询结果。</strong><br>应用场景：  </p>
+<ul>
+<li>多个地方用到<strong>同样的查询结果</strong>  </li>
+<li>该查询结果使用的sql语句较复杂  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 案例：查询姓张的学生名和专业名  </span><br><span class="line"></span><br><span class="line"># 不使用视图  </span><br><span class="line"><span class="keyword">SELECT</span> stuname,majorname</span><br><span class="line"><span class="keyword">FROM</span> stuinfo s</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> major m <span class="keyword">ON</span> s.major_id <span class="operator">=</span> m.id</span><br><span class="line"><span class="keyword">WHERE</span> s.stuname <span class="keyword">LIKE</span> <span class="string">&#x27;张&#x27;</span>;  </span><br><span class="line"></span><br><span class="line"># 使用视图  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> v1</span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> stuname ,majorname</span><br><span class="line"><span class="keyword">FROM</span> stuinfo s</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> major m <span class="keyword">ON</span> s.major_id <span class="operator">=</span> m.id;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> v1 <span class="keyword">WHERE</span> stuname <span class="keyword">LIKE</span> <span class="string">&#x27;张%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="2-视图的创建"><a href="#2-视图的创建" class="headerlink" title="2. 视图的创建"></a>2. 视图的创建</h2>语法：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> 视图名</span><br><span class="line"><span class="keyword">as</span></span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 案例：查询姓名中包含a字符的员工名、部门名和工种信息  </span><br><span class="line"># ①：创建  </span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myv1 </span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name,job_title  </span><br><span class="line"><span class="keyword">FROM</span> employees e</span><br><span class="line"><span class="keyword">JOIN</span> departments d <span class="keyword">ON</span> e.department_id <span class="operator">=</span> d.department</span><br><span class="line"><span class="keyword">JOIN</span> jobs j <span class="keyword">ON</span> j.job_id <span class="operator">=</span> e.job_id;</span><br><span class="line"></span><br><span class="line"># ②：使用  </span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> myv1 <span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#  案例：查询各部门的平均工资级别</span><br><span class="line">#①创建视图查看每个部门的平均工资</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myv2</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(salary) ag,department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id;</span><br><span class="line"></span><br><span class="line">#②使用</span><br><span class="line"><span class="keyword">SELECT</span> myv2.`ag`,g.grade_level</span><br><span class="line"><span class="keyword">FROM</span> myv2</span><br><span class="line"><span class="keyword">JOIN</span> job_grades g</span><br><span class="line"><span class="keyword">ON</span> myv2.`ag` <span class="keyword">BETWEEN</span> g.`lowest_sal` <span class="keyword">AND</span> g.`highest_sal`;  </span><br></pre></td></tr></table></figure>
+<h2 id="3-视图的修改"><a href="#3-视图的修改" class="headerlink" title="3. 视图的修改"></a>3. 视图的修改</h2>方式一：  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> replace <span class="keyword">view</span> 视图名  </span><br><span class="line"><span class="keyword">as</span>  </span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">案例：</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> REPLACE <span class="keyword">VIEW</span> myv3 </span><br><span class="line"><span class="keyword">AS</span> </span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">AVG</span>(salary),job_id</span><br><span class="line"><span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> job_id;</span><br></pre></td></tr></table></figure>
+方式二：  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">view</span> 视图名  </span><br><span class="line"><span class="keyword">as</span></span><br><span class="line">查询语句;</span><br></pre></td></tr></table></figure>
+<h2 id="4-删除视图"><a href="#4-删除视图" class="headerlink" title="4. 删除视图"></a>4. 删除视图</h2>语法：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> 视图名<span class="number">1</span>，视图名<span class="number">2.</span>..;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">案例：</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">VIEW</span> emp_v1,emp_v2,myv3;</span><br></pre></td></tr></table></figure>
+<h2 id="5-查看视图"><a href="#5-查看视图" class="headerlink" title="5. 查看视图"></a>5. 查看视图</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DESC</span> myv3;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">CREATE</span> <span class="keyword">VIEW</span> myv3;</span><br></pre></td></tr></table></figure>
+<h2 id="6-视图的更新"><a href="#6-视图的更新" class="headerlink" title="6. 视图的更新"></a>6. 视图的更新</h2></li>
+<li>*1.插入**：  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> myv1 <span class="keyword">VALUES</span>(<span class="string">&#x27;张飞&#x27;</span>,<span class="string">&#x27;zf@qq.com&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> myv1;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> employees;</span><br><span class="line"># 原来的表格也会被更新（插入这条语句）  </span><br></pre></td></tr></table></figure></li>
+<li>*2.修改**：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UPDATE myv1 <span class="keyword">SET</span> last_name <span class="operator">=</span> <span class="string">&#x27;张无忌&#x27;</span> <span class="keyword">WHERE</span> last_name <span class="operator">=</span> <span class="string">&#x27;张飞&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
+<li>*3.删除**：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> myv1 <span class="keyword">WHERE</span> last_name <span class="operator">=</span> <span class="string">&#x27;张无忌&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="7-视图不能轻易更改"><a href="#7-视图不能轻易更改" class="headerlink" title="7. 视图不能轻易更改"></a>7. 视图不能轻易更改</h2>具备以下特点的视图不允许更新  </li>
+<li>包含以下关键字的sql语句：分组函数、distinct、group  by、having、union或者union all</li>
+<li>常量视图</li>
+<li>Select中包含子查询</li>
+<li>join</li>
+<li>from一个不能更新的视图 </li>
+<li>where子句的子查询引用了from子句中的表  <h2 id="8-视图和表的区别"><a href="#8-视图和表的区别" class="headerlink" title="8. 视图和表的区别"></a>8. 视图和表的区别</h2></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>创建语法的关键字</th>
+<th>是否实际占用物理空间</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>视图</td>
+<td>create view</td>
+<td>没有，是保存了逻辑的虚表</td>
+<td>增删改查，一般不会更新，只用来查数据</td>
+</tr>
+<tr>
+<td>表</td>
+<td>create table</td>
+<td>占有，保存了实际的数据</td>
+<td>增删改查</td>
+</tr>
+</tbody></table>
 
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wein.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JAVA//" class="article-tag-list-link color5">JAVA</a>
+        			<a href="/categories/MySql//" class="article-tag-list-link color1">MySql</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JAVA/se//" class="article-tag-list-link color3">se</a>
+        			<a href="/categories/MySql/part13-视图//" class="article-tag-list-link color5">part13.视图</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yaohuicong.github.io/021/08/21/%E8%A7%86%E5%9B%BE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/08/20/%E4%BA%8B%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">事务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">视图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%A7%86%E5%9B%BE%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">1. 视图的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%A7%86%E5%9B%BE%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.2.</span> <span class="toc-text">2. 视图的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%86%E5%9B%BE%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-number">1.3.</span> <span class="toc-text">3. 视图的修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%88%A0%E9%99%A4%E8%A7%86%E5%9B%BE"><span class="toc-number">1.4.</span> <span class="toc-text">4. 删除视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%9F%A5%E7%9C%8B%E8%A7%86%E5%9B%BE"><span class="toc-number">1.5.</span> <span class="toc-text">5. 查看视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%A7%86%E5%9B%BE%E7%9A%84%E6%9B%B4%E6%96%B0"><span class="toc-number">1.6.</span> <span class="toc-text">6. 视图的更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%A7%86%E5%9B%BE%E4%B8%8D%E8%83%BD%E8%BD%BB%E6%98%93%E6%9B%B4%E6%94%B9"><span class="toc-number">1.7.</span> <span class="toc-text">7. 视图不能轻易更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E8%A7%86%E5%9B%BE%E5%92%8C%E8%A1%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.8.</span> <span class="toc-text">8. 视图和表的区别</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+
 
 
           </div>
@@ -277,10 +445,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
